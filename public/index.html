@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telegram CoinFlip Arena</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🪙 CoinFlip Arena</h1>
+      <div id="timer">20.0s</div>
+    </header>
+
+    <section class="coin-zone">
+      <div id="coin" class="coin">🪙</div>
+      <div id="roundStatus">Раунд ставок</div>
+      <div class="market" id="marketInfo">Орел: 0 игроков | Решка: 0 игроков</div>
+    </section>
+
+    <section class="panels">
+      <div class="panel profile">
+        <h2>Профиль</h2>
+        <label>Ник: <input id="nickname" value="Player" maxlength="20" /></label>
+        <button id="joinBtn">Войти в комнату</button>
+        <p>Монеты: <span id="myCoins">100</span></p>
+        <p>Победы: <span id="myWins">0</span></p>
+      </div>
+
+      <div class="panel betting">
+        <h2>Ставка</h2>
+        <label>Сумма: <input id="betAmount" type="number" value="10" min="1" /></label>
+        <div class="bet-buttons">
+          <button data-side="heads">Орел</button>
+          <button data-side="tails">Решка</button>
+        </div>
+        <p>Каждая ставка добавляет +1 или +2 секунды к таймеру.</p>
+      </div>
+
+      <div class="panel players">
+        <h2>Игроки онлайн</h2>
+        <ul id="playersList"></ul>
+      </div>
+
+      <div class="panel history">
+        <h2>История раундов</h2>
+        <ul id="historyList"></ul>
+      </div>
+    </section>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
